@@ -31,7 +31,7 @@ export default function Show(props) {
 
     useEffect(() => {
         // TODO: move path to content to env var
-        const pathToContent = `https://dx8tbx8xyp3vi.cloudfront.net${splat ? '/' : ''}${splat}`
+        const pathToContent = `https://dx8tbx8xyp3vi.cloudfront.net/${splat}`
         // if path is markdown we fetch and render it, otherwise we treat it like an index, need to support other file formats
         if (splat.split('.').pop() === 'md') {
             fetch(pathToContent)
@@ -42,7 +42,7 @@ export default function Show(props) {
             // if we assume index we assume json; this is too much based on nginx servers, might be good to either support multiple index styles. 
             // I think a manual or automatic standardized index format could also work, like you have to run an indexing script, but perhaps the publishing app...
             // is on your local machine and has ftp access to your feed and when you go to publish in a folder it automatically handles index regeneration
-            fetch(`${pathToContent}/index.json`)
+            fetch(`${pathToContent}index.json`)
             .then(data => data.json())
             .then(indexes => {
                 indexes = indexes.map(index => ({ date: new Date(index.mtime * 1000), ...index }))
@@ -50,7 +50,7 @@ export default function Show(props) {
                 indexes = indexes.sort((a, b) => b.date - a.date)
                 if (indexContentReference) {
                     indexes = indexes.filter(index => index !== indexContentReference)
-                    fetch(`${pathToContent}/index.md`)
+                    fetch(`${pathToContent}index.md`)
                     .then(data => data.text())
                     .then(md => {
                         setIndexContent(md)
