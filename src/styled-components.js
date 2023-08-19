@@ -1,8 +1,9 @@
 import styled from "styled-components"
+import { Link as ReactLink } from "react-router-dom"
 
-const primaryColor = '#72FF47'
-const secondaryColor = '#AC9AFF'
-const bodyColor = '#EAFFD3'
+const primaryColor = '#FF64CE'
+const secondaryColor = '#E38BF7'
+const bodyColor = '#83FFA0'
 
 const Page = styled.div`
 max-width: 800px;
@@ -55,7 +56,7 @@ border-left: 1px solid ${bodyColor};
 padding-left: 10px;
 `
 
-const Link = styled.a`
+const Link = styled(ReactLink)`
 text-decoration: none;
 color: ${primaryColor};
 `

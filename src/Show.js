@@ -28,10 +28,21 @@ export default function Show(props) {
     const [indexContent, setIndexContent] = useState(null)
     const [notFound, setNotFound] = useState(false)
     const [options, setOptions] = useState({})
+    const [siteMap, setSiteMap] = useState({})
 
     useEffect(() => {
+        fetch(`${process.env.REACT_APP_CONTENT_URL}/sitemap.json`)
+        .then(data => data.json())
+        .then(siteMapData => {
+            setSiteMap(siteMapData)
+        })
+    }, [])
+
+    useEffect(() => {
+        setContent(null)
+        window.scrollTo(0, 0)
         // TODO: move path to content to env var
-        const pathToContent = `https://dx8tbx8xyp3vi.cloudfront.net${splat ? '/' : ''}${splat}`
+        const pathToContent = `${process.env.REACT_APP_CONTENT_URL}${splat ? '/' : ''}${splat}`
         // if path is markdown we fetch and render it, otherwise we treat it like an index, need to support other file formats
         if (splat.split('.').pop() === 'md') {
             fetch(pathToContent)

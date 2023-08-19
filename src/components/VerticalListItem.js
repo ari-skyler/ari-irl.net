@@ -8,7 +8,7 @@ export default function VerticalListItem({ title, date, link, linkText }){
                 }
                 <styledComponents.ListTitle>{ title }</styledComponents.ListTitle>
             </div>
-            <styledComponents.Link href={ link }>{ linkText || 'view content' }</styledComponents.Link>
+            <styledComponents.Link to={ link }>{ linkText || 'view content' }</styledComponents.Link>
         </styledComponents.VerticalListItem>
     )
 }
