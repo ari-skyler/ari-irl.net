@@ -7,6 +7,6 @@ export default function QuickLink({ children }){
     ref = ref[0] === "~" ? `${splat.split('/').filter(crumb => crumb !== ref.slice(1)).join('/')}/${ref.slice(1)}` : ref
     ref = ref[0] === '/' ? ref : '/' + ref
     return (
-        <styledCOmponents.Link href={`http://ari-irl.net${ref}`}>{ ref.split('/').pop().split('.')[0] }</styledCOmponents.Link>
+        <styledCOmponents.Link to={`https://ari-irl.net${ref}`}>{ ref.split('/').pop().split('.')[0] }</styledCOmponents.Link>
     )
 }

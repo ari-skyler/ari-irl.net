@@ -61,6 +61,11 @@ text-decoration: none;
 color: ${primaryColor};
 `
 
+const Anchor = styled.a`
+text-decoration: none;
+color: ${primaryColor};
+`
+
 const HorizontalMenu = styled.div`
 display: flex;
 justify-content: space-between;
@@ -126,5 +131,6 @@ export default {
     Date,
     Content,
     ListItem,
-    BreadCrumbs
+    BreadCrumbs,
+    Anchor
 }

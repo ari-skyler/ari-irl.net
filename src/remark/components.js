@@ -3,10 +3,12 @@ import VerticalListItem from "../components/VerticalListItem"
 import QuickLink from "../components/QuickLink"
 import YoutubeEmbed from "../components/YoutubeEmbed"
 import SoundCloudEmbed from "../components/SoundCloudEmbed"
+import AutoImg from "../components/AutoImg"
+import SlideShow from "../components/SlideShow"
 const option = () => null
 
 export default {
-    a: styledComponents.Link,
+    a: styledComponents.Anchor,
     h1: styledComponents.PageTitle,
     h2: styledComponents.SubTitle,
     h3: styledComponents.SectionTitle,
@@ -20,5 +22,7 @@ export default {
     li: styledComponents.ListItem,
     ql: QuickLink,
     yt: YoutubeEmbed,
-    sc: SoundCloudEmbed
+    sc: SoundCloudEmbed,
+    pic: AutoImg,
+    slideshow: SlideShow
 }

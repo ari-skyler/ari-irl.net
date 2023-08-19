@@ -90,7 +90,7 @@ export default function Show(props) {
                 <styledComponents.SubTitle>{ splat.split('/').pop() + ' contents' || 'contents of my mind' }</styledComponents.SubTitle>
                 <styledComponents.VerticalList>
                     { 
-                        indexList.filter(item => item.name.split('.')[1] !== 'json')
+                        indexList.filter(item => item.name.split('.')[1] !== 'json' && item.name[0] !== '_')
                         .map(item => {
                             let icon
                             if (item.name.split('.').length === 1) {
